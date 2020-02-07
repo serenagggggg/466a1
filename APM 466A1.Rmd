@@ -1,8 +1,0 @@
----
-title: "apm466 a1"
-output: pdf_document
----
-
-```{r}
-file<- importIntoEnv()
-```

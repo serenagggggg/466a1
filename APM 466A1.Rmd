@@ -1,0 +1,254 @@
+---
+title: "apm466 a1"
+output: pdf_document
+---
+
+```{r}
+library(jrvFinance)
+pricematrix <- matrix(ncol=10 , nrow=10)
+pricematrix[1,1]<-99.85
+pricematrix[1,2]<-99.26
+pricematrix[1,3]<-98.89
+pricematrix[1,4]<-98.41
+pricematrix[1,5]<-97.57
+pricematrix[1,6]<-102.53
+pricematrix[1,7]<-100.31
+pricematrix[1,8]<-102.52
+pricematrix[1,9]<-98.72
+pricematrix[1,10]<-98.24
+pricematrix[2,1]<-99.86
+pricematrix[2,2]<-99.28
+pricematrix[2,3]<-98.93
+pricematrix[2,4]<-98.45
+pricematrix[2,5]<-97.63
+pricematrix[2,6]<-102.59
+pricematrix[2,7]<-100.42
+pricematrix[2,8]<-102.65
+pricematrix[2,9]<-98.95
+pricematrix[2,10]<-98.43
+pricematrix[3,1]<-99.86
+pricematrix[3,2]<-99.28
+pricematrix[3,3]<-98.95
+pricematrix[3,4]<-98.49
+pricematrix[3,5]<-97.66
+pricematrix[3,6]<-102.62
+pricematrix[3,7]<-100.48
+pricematrix[3,8]<-102.75
+pricematrix[3,9]<-99.29
+pricematrix[3,10]<-98.58
+pricematrix[4,1]<-99.86
+pricematrix[4,2]<-99.27
+pricematrix[4,3]<-98.94
+pricematrix[4,4]<-98.46
+pricematrix[4,5]<-97.65
+pricematrix[4,6]<-102.59
+pricematrix[4,7]<-100.45
+pricematrix[4,8]<-102.58
+pricematrix[4,9]<-99.11
+pricematrix[4,10]<-98.48
+pricematrix[5,1]<-99.86
+pricematrix[5,2]<-99.28
+pricematrix[5,3]<-98.92
+pricematrix[5,4]<-98.46
+pricematrix[5,5]<-97.64
+pricematrix[5,6]<-102.58
+pricematrix[5,7]<-100.44
+pricematrix[5,8]<-102.68
+pricematrix[5,9]<-99.25
+pricematrix[5,10]<-98.48
+pricematrix[6,1]<-99.86
+pricematrix[6,2]<-99.28
+pricematrix[6,3]<-98.92
+pricematrix[6,4]<-98.43
+pricematrix[6,5]<-97.6
+pricematrix[6,6]<-102.52
+pricematrix[6,7]<-100.35
+pricematrix[6,8]<-102.53
+pricematrix[6,9]<-98.99
+pricematrix[6,10]<-98.3
+pricematrix[7,1]<-99.86
+pricematrix[7,2]<-99.28
+pricematrix[7,3]<-98.88
+pricematrix[7,4]<-98.43
+pricematrix[7,5]<-97.61
+pricematrix[7,6]<-102.52
+pricematrix[7,7]<-100.31
+pricematrix[7,8]<-102.47
+pricematrix[7,9]<-99.03
+pricematrix[7,10]<-98.25
+pricematrix[8,1]<-99.86
+pricematrix[8,2]<-99.27
+pricematrix[8,3]<-98.9
+pricematrix[8,4]<-98.38
+pricematrix[8,5]<-97.57
+pricematrix[8,6]<-102.46
+pricematrix[8,7]<-100.27
+pricematrix[8,8]<-102.46
+pricematrix[8,9]<-99.06
+pricematrix[8,10]<-98.24
+pricematrix[9,1]<-99.86
+pricematrix[9,2]<-99.28
+pricematrix[9,3]<-98.9
+pricematrix[9,4]<-98.41
+pricematrix[9,5]<-97.58
+pricematrix[9,6]<-102.47
+pricematrix[9,7]<-100.31
+pricematrix[9,8]<-102.54
+pricematrix[9,9]<-98.99
+pricematrix[9,10]<-98.34
+pricematrix[10,1]<-99.86
+pricematrix[10,2]<-99.3
+pricematrix[10,3]<-98.93
+pricematrix[10,4]<-98.42
+pricematrix[10,5]<-97.61
+pricematrix[10,6]<-102.51
+pricematrix[10,7]<-100.38
+pricematrix[10,8]<-102.64
+pricematrix[10,9]<-99.1
+pricematrix[10,10]<-98.47
+datematrix <- matrix(ncol = 2, nrow = 10)
+datematrix[1,1]<-'2020-01-02'
+datematrix[2,1]<-'2020-01-03'
+datematrix[3,1]<-'2020-01-06'
+datematrix[4,1]<-'2020-01-07'
+datematrix[5,1]<-'2020-01-08'
+datematrix[6,1]<-'2020-01-09'
+datematrix[7,1]<-'2020-01-10'
+datematrix[8,1]<-'2020-01-13'
+datematrix[9,1]<-'2020-01-14'
+datematrix[10,1]<-'2020-01-15'
+datematrix[1,2]<-'2020-03-01'
+datematrix[2,2]<-'2020-09-01'
+datematrix[3,2]<-'2021-03-01'
+datematrix[4,2]<-'2021-09-01'
+datematrix[5,2]<-'2022-03-01'
+datematrix[6,2]<-'2022-06-01'
+datematrix[7,2]<-'2023-03-01'
+datematrix[8,2]<-'2024-03-01'
+datematrix[9,2]<-'2024-09-01'
+datematrix[10,2]<-'2025-03-01'
+couponmatrix <- matrix(ncol = 1, nrow = 10)
+couponmatrix[1,1]<-0.015
+couponmatrix[2,1]<-0.0075
+couponmatrix[3,1]<-0.0075
+couponmatrix[4,1]<-0.0075
+couponmatrix[5,1]<-0.005
+couponmatrix[6,1]<-0.0275
+couponmatrix[7,1]<-0.0175
+couponmatrix[8,1]<-0.0225
+couponmatrix[9,1]<-0.0115
+couponmatrix[10,1]<-0.0125
+
+  
+
+```
+
+```{r}
+yields <- matrix(ncol = 10, nrow = 10)
+for ( i in 1:10){
+  for (j in 1:10){
+    yields[i,j] <- bond.yield(settle = datematrix[i,1], mature = datematrix[j,2], coupon= couponmatrix[j,1], price = pricematrix[i,j])
+  }
+}
+time <- seq(0.5, 5, by=0.5)
+plot(time, yields[1,], type="l", main = "yield curves by day", xlab = "years", ylab="yield rates")
+for (i in 2:10){
+  lines(time, yields[i,], type = "l",col=i)
+}
+legend("topright", legend = datematrix[,1], col = 1:10, lty=1, cex=0.6)
+```
+
+```{r}
+dpmatrix <- matrix(ncol = 10, nrow = 10)
+srmatrix <- matrix(ncol = 10, nrow = 10)
+for (i in 1:10){
+  for (j in 1:10){
+    accruedinterest <- bond.TCF(settle = datematrix[i,1], mature = datematrix[j,2], coupon = couponmatrix[j,1], redemption_value = 100)$accrued
+    dpmatrix[i,j] <- pricematrix[i,j] + accruedinterest
+  }
+}
+for (i in 1:10){
+  for (j in 1:10){
+    if ( j == 1){
+      srmatrix[i,1] <- -log(dpmatrix[i,j] / (100 + 100 * couponmatrix[j,1] / 2))/yearFraction(datematrix[i,1], datematrix[j,2])
+    }
+    else{
+      cf = 0
+      for(k in 1:(j - 1)){
+        cf1 <- 100 * couponmatrix[j,1] * exp(- srmatrix[i, j-1] *(yearFraction(datematrix[i,1], datematrix[j,2]) - 0.5 * k)) / 2
+        cf = cf +cf1
+      }
+      srmatrix[i,j] <- - log((dpmatrix[i,j] - cf) / (100 + 100 * couponmatrix[j,1] /2)) / yearFraction(datematrix[i,1], datematrix[j,2])
+    }
+  }
+}
+plot(time, srmatrix[1,], type="l", main = "spot rates by day", xlab = "years", ylab="spot rates")
+for (i in 2:10){
+  lines(time, srmatrix[i,], type = "l",col=i)
+}
+legend("topright", legend = datematrix[,1], col = 1:10, lty=1, cex=0.6)
+```
+
+```{r}
+srmatrix2 <- matrix(ncol = 5, nrow = 10)
+for (i in 1:10){
+  srmatrix2[i,1] <- srmatrix[i,3]
+  srmatrix2[i,2] <- srmatrix[i,5]
+  srmatrix2[i,3] <- srmatrix[i,7]
+  srmatrix2[i,4] <- srmatrix[i,8]
+  srmatrix2[i,5] <- srmatrix[i,10]
+}
+frmatrix <- matrix(ncol = 4, nrow = 10)
+for (i in 1:10){
+  for (j in 1:4){
+    frmatrix[i,j] <- (srmatrix2[i,j+1] *(j + 1) - srmatrix2[i,j] * j)
+  }
+}
+time <- seq(1,4,by=1)
+plot(time, frmatrix[1,], type="l", main = "forward rates by day", xlab = "1yr- yr", ylab="forward rates")
+for (i in 2:10){
+  lines(time, frmatrix[i,], type = "l",col=i)
+}
+legend("topright", legend = datematrix[,1], col = 1:10, lty=1, cex=0.4)
+```
+
+```{r}
+ymatrix <- matrix(ncol = 5, nrow = 10)
+ymatrix2 <- matrix(ncol = 5, nrow = 9)
+for (i in 1:10){
+  ymatrix[i,1] <- yields[i,3]
+  ymatrix[i,2] <- yields[i,5]
+  ymatrix[i,3] <- yields[i,7]
+  ymatrix[i,4] <- yields[i,8]
+  ymatrix[i,5] <- yields[i,10]
+}
+for (i in 1:5){
+  for (n in 1:9){
+    ymatrix2[n, i] <- log(ymatrix[n+1, i]/ymatrix[n, i])
+  }
+}
+covariancematrix1 <- cov(ymatrix2[1:9, 1:5])
+covariancematrix1
+```
+
+```{r}
+fmatrix <- matrix(ncol = 4, nrow = 10)
+fmatrix2 <- matrix(ncol = 4, nrow = 9)
+for (i in 1:10){
+  for (n in 1:4){
+    fmatrix[i,n] <- frmatrix[i,n]
+  }
+}
+for (i in 1:4){
+  for (n in 1:9){
+    fmatrix2[n, i] <- log(fmatrix[n+1, i]/ fmatrix[n, i])
+  }
+}
+covariancematrix2 <- cov(fmatrix2)
+covariancematrix2
+```
+
+```{r}
+eigen(covariancematrix1)
+eigen(covariancematrix2)
+```
